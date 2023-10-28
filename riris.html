@@ -1,0 +1,44 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        # read the data
+        location4 <- "Placement_Data_Full_Class.csv" # copy applicable path
+        placementgg <- read.csv(location4)
+        head(placementgg)
+        colnames(placementgg)
+        str(placementgg)
+
+        # Import the data
+        data(iris)
+
+        # Create a histogram of Sepal Length
+        ggplot(iris, aes(x = Sepal.Length)) +
+            geom_histogram(binwidth = 0.2, fill = "steelblue", color = "white") +
+            labs(title = "Histogram of Sepal Length", x = "Sepal Length", y = "Frequency")
+
+        # Create a scatter plot of Sepal Width vs. Sepal Length
+        ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+            geom_point(size = 3) +
+            labs(title = "Scatter Plot of Sepal Width vs. Sepal Length", x = "Sepal Length", y = "Sepal Width")
+
+        # Create a box plot of Petal Length by Species
+        ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
+            geom_boxplot() +
+            labs(title = "Box Plot of Petal Length by Species", x = "Species", y = "Petal Length")
+
+        # Create a density plot of Petal Width by Species
+        ggplot(iris, aes(x = Petal.Width, fill = Species)) +
+            geom_density(alpha = 0.5) +
+            labs(title = "Density Plot of Petal Width by Species", x = "Petal Width")
+
+    </pre>
+
+</body>
+</html>

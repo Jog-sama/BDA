@@ -1,0 +1,51 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        # Import the data
+        data <- read.csv("churn_data.csv")
+
+        # Clean and preprocess the data
+        data <- na.omit(data)
+        data <- distinct(data)
+        data <- select(data, -c(CustomerID))
+
+        # Split the data into training and testing sets
+        library(caret)
+        set.seed(123)
+        trainIndex <- createDataPartition(data$Churn, p = .7, list = FALSE)
+        trainData <- data[trainIndex, ]
+        testData <- data[-trainIndex, ]
+
+        # Train the logistic regression model
+        model <- glm(Churn ~ ., family = binomial(link = "logit"), data = trainData)
+
+        # Evaluate the performance of the model
+        library(pROC)
+        predictions <- predict(model, testData[, -20], type = "response")
+        auc <- roc(testData$Churn, predictions)$auc
+        print(paste0("AUC: ", auc))
+
+        # Visualize the results of the model
+        library(ggplot2)
+        library(plotROC)
+        ggroc(roc(testData$Churn, predictions))
+
+        library(ggplot2)
+
+        # Create a bar chart of salaries by employee name
+        ggplot(salaries) +
+            aes(x = Name.of.employees, y = Salaries) +
+            geom_bar(stat = "identity") +
+            labs(title = "Salaries by Employee Name", x = "Employee Name", y = "Salaries")
+
+    </pre>
+
+</body>
+</html>

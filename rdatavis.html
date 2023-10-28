@@ -1,0 +1,41 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        # Load the required libraries
+        library(ggplot2)
+        library(plotly)
+
+        # Read the data from the CSV file
+        data <- read.csv("Placement_Dataset.csv")
+
+        # Create a pie chart of the status of the students
+        pie(table(data$status), main = "Student Status")
+
+        # Create a dot plot of the MBA percentage
+        ggplot(data, aes(x = mba_p)) + geom_dotplot(binaxis = "y", stackdir = "center", fill = "blue", alpha = 0.5) + labs(title = "MBA Percentage")
+
+        # Create a bar chart of the HSC percentage
+        ggplot(data, aes(x = hsc_p)) + geom_bar(fill = "green", alpha = 0.5) + labs(title = "HSC Percentage")
+
+        # Create a bubble chart of the test scores and salary
+        plot_ly(data, x = ~etest_p, y = ~salary, color = ~gender, size = ~mba_p, sizes = c(10, 100), alpha = 0.5) %>% add_markers() %>% layout(title = "Test Scores vs Salary")
+
+        # Create a scatter plot of the test scores and salary
+        ggplot(data, aes(x = etest_p, y = salary)) + geom_point(aes(color = gender), alpha = 0.5) + labs(title = "Test Scores vs Salary")
+
+        # Create a histogram of the MBA percentage
+        ggplot(data, aes(x = mba_p)) + geom_histogram(fill = "red", alpha = 0.5) + labs(title = "MBA Percentage")
+
+        # Create a box plot of the HSC percentage
+        ggplot(data, aes(x = "", y = hsc_p)) + geom_boxplot(fill = "yellow", alpha = 0.5) + labs(title = "HSC Percentage")
+    </pre>
+
+</body>
+</html>

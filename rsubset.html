@@ -1,0 +1,49 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        # Create the data frame
+        data <- data.frame(
+        subject = c(1, 2, 3, 4, 5),
+        class = c(1, 2, 1, 2, 1),
+        marks = c(56, 75, 48, 89, 67)
+        )
+
+        # Subset the data frame
+        subset_data <- subset(data, subject < 4)
+
+        # Display the subsetted data frame
+        print("Subset of subject less than 4:")
+        print(subset_data)
+
+        # Create the data frame
+        data <- data.frame(
+        subject = c(1, 2, 3, 4, 5),
+        class = c(1, 2, 1, 2, 1),
+        marks = c(56, 75, 48, 89, 67)
+        )
+
+        # Subset the data frame
+        subset_data <- data[data$subject < 3 & data$class == 2, ]
+
+        # Display the subsetted data frame
+        print("Subset of subject less than 3 and class equals to 2:")
+        print(subset_data)
+
+        library(ggplot2)
+
+        # Create a bar chart of marks
+        ggplot(data) +
+            aes(x = factor(subject), y = marks) +
+            geom_bar(stat = "identity") +
+            labs(title = "Marks by Subject", x = "Subject", y = "Marks")
+    </pre>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        bread <- c(12, 3, 5, 11, 9)
+        milk <- c(21, 27, 18, 20, 15)
+        cola_cans <- c(10, 1, 33, 6, 12)
+        chocolate_bars <- c(6, 7, 4, 13, 12)
+        detergent <- c(5, 8, 12, 20, 23)
+
+        library(ggplot2)
+
+        # Create a data frame from the vectors
+        df <- data.frame(
+            day = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
+            bread = bread,
+            milk = milk,
+            cola_cans = cola_cans,
+            chocolate_bars = chocolate_bars,
+            detergent = detergent
+        )
+
+        # Melt the data frame to long format
+        df_melted <- reshape2::melt(df, id.vars = "day", variable.name = "product", value.name = "units")
+
+        # Create a bar chart of the number of units sold for each product
+        ggplot(df_melted, aes(x = day, y = units)) +
+            geom_bar(aes(fill = product), position = "dodge", stat = "identity") +
+            labs(title = "Number of Units Sold by Product and Day", x = "Day", y = "Units Sold") +
+            scale_fill_discrete(name = "Product")
+    </pre>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        library(ggplot2)
+
+        # Create a bar chart of sales by product
+        ggplot(supermarket_data, aes(x = Product, y = Sales)) +
+            geom_bar(stat = "identity", fill = "steelblue") +
+            labs(title = "Sales by Product", x = "Product", y = "Sales")
+
+            library(ggplot2)
+
+        # Create a scatter plot of sales vs. profit
+        ggplot(supermarket_data, aes(x = Sales, y = Profit, color = Region)) +
+            geom_point(size = 3) +
+            labs(title = "Sales vs. Profit", x = "Sales", y = "Profit")
+
+            library(ggplot2)
+
+        # Create a box plot of sales by region
+        ggplot(supermarket_data, aes(x = Region, y = Sales, fill = Region)) +
+            geom_boxplot() +
+            labs(title = "Sales by Region", x = "Region", y = "Sales")
+
+            library(ggplot2)
+
+        # Create a heatmap of correlation between sales, profit, and discount
+        ggplot(supermarket_data, aes(x = Sales, y = Profit)) +
+            geom_bin2d(binwidth = c(1000, 1000), aes(fill = ..count..)) +
+            scale_fill_gradient(low = "white", high = "steelblue") +
+            labs(title = "Correlation between Sales, Profit, and Discount", x = "Sales", y = "Profit")
+
+    </pre>
+
+</body>
+</html>

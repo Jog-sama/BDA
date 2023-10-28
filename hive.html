@@ -1,0 +1,50 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        hive
+
+        show databases;
+
+        create database nidhi;
+
+        show databases;
+
+        use nidhi;
+
+        create table NK(id INT, name STRING, salary INT)row format delimited fields terminated y ',' stored as textfile;
+
+        describe NK;
+
+        load data local inpath '/home/training/nids.txt' into table NK;
+
+        select * from NK;
+
+        use nidhi;
+
+        alter table NK rename to NK_empsal;
+
+        select * from NK_empsal where id = 12;
+
+        select * from NK_empsal where id = 10;
+
+        select count(*) from NK_empsal;
+
+        select AVG(salary) as avg_salary from NK_empsal;
+
+        select MAX(salary) as max_salary from NK_empsal;
+
+        drop table NK_empsal;
+
+        exit;
+
+    </pre>
+
+</body>
+</html>

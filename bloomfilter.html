@@ -1,0 +1,76 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        def h1(s, arr_size):
+            hash_value = 0
+            for char in s:
+                hash_value = (hash_value + ord(char)) % arr_size
+            return hash_value
+
+        def h2(s, arr_size):
+            hash_value = 1
+            for i, char in enumerate(s):
+                hash_value = (hash_value + (19 ** i) * ord(char)) % arr_size
+            return hash_value
+
+        def h3(s, arr_size):
+            hash_value = 7
+            for char in s:
+                hash_value = (hash_value * 31 + ord(char)) % arr_size
+            return hash_value
+
+        def h4(s, arr_size):
+            hash_value = 3
+            p = 7
+            for i, char in enumerate(s):
+                hash_value += hash_value * 7 + ord(s[0]) * (p ** i)
+            hash_value = hash_value % arr_size
+            return hash_value
+
+        def lookup(bitarray, s):
+            a = h1(s, len(bitarray))
+            b = h2(s, len(bitarray))
+            c = h3(s, len(bitarray))
+            d = h4(s, len(bitarray))
+            return bitarray[a] and bitarray[b] and bitarray[c] and bitarray[d]
+
+        def insert(bitarray, s):
+            if lookup(bitarray, s):
+                print(s + " is Probably already present")
+            else:
+                a = h1(s, len(bitarray))
+                b = h2(s, len(bitarray))
+                c = h3(s, len(bitarray))
+                d = h4(s, len(bitarray))
+                print("hash value-1 : ", a)
+                print("hash value-2 : ", b)
+                print("hash value-3 : ", c)
+                print("hash value-4 : ", d)
+                bitarray[a] = 1
+                bitarray[b] = 1
+                bitarray[c] = 1
+                bitarray[d] = 1
+                print(s + " inserted :")
+                print(bitarray, end='\n\n')
+
+        bitarray = [0] * 20
+        sarray = ["abound", "colorful", "facebook", "twitter", "bloom"]
+        for word in sarray:
+            insert(bitarray, word)
+
+        searchWord = input("Enter the word to be searched : ")
+        if lookup(bitarray, searchWord):
+            print(searchWord + " is Probably already present")
+        else:
+            print(searchWord + " is NOT present")
+    </pre>
+
+</body>
+</html>

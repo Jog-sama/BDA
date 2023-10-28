@@ -1,0 +1,44 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        1. Import Data to HDFS:
+        sqoop import --connect jdbc:mysql://localhost/mydb --username user --password pass
+        --table mytable --target-dir /user/hadoop/mydata
+        This command imports data from a MySQL database table into Hadoop HDFS.
+
+
+        2. Export Data to Relational Database:
+        sqoop export --connect jdbc:mysql://localhost/mydb --username user --password pass
+        --table mytable --export-dir /user/hadoop/mydata
+        Exports data from HDFS to a MySQL database table
+
+        create database:
+
+        1. mysql -u root -p
+
+        2. create database bank;
+
+        3. show databases;
+
+        4. use bank
+
+        5. create table register(
+        acc varchar(20),
+        name, number ,email,age)
+
+        6. insert into register values("1), "shivam, "11", "shivgmail.com", "21")
+
+        7. Access: hadoop fs -ls /home/cloudera/myData
+
+        8 export: sqoop export --connect jdbc:mysql://localhost/bank --username root --password cloudfera --table registercopy --export-dir /home/cloudera/myData
+    </pre>
+
+</body>
+</html>

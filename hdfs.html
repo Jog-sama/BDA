@@ -1,0 +1,239 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        1. Print the Hadoop version
+        • To check the hadoop version, you can use the hadoop version command.
+        • This command provides information about the installed Hadoop software,
+        including the version number and build details.
+
+        2. List the contents of the root directory in HDFS
+        • The hadoop fs -ls / command is used to list the contents of the root
+        directory in HDFS.
+        • This command displays information about files and directories in the root
+        of the Hadoop Distributed File System.
+
+
+        3. Report the amount of space used and available on currently mounted
+        filesystem
+        • The hadoop fs -df hdfs:/ command reports the disk usage and available
+        space on the HDFS file system.
+        • It provides information about the storage capacity and usage for the
+        specified HDFS location.
+
+
+        4. Count the number of directories, files, and bytes under the paths that
+        match the specified file pattern
+        • The hadoop fs -count hdfs:/ command is used to count the number of
+        directories, files, and bytes under the specified path.
+        • It helps in understanding the structure and size of data in HDFS.
+
+
+        5. Run a DFS filesystem checking utility
+        • The hadoop fsck - / command runs the Hadoop Distributed File System
+        checking utility.
+        • It checks the integrity of the file system and reports any issues or
+        inconsistencies in the HDFS.
+
+
+
+        6. Run a cluster balancing utility
+        • The hadoop balancer command is used to initiate the Hadoop cluster
+        balancing process.
+        • It redistributes data blocks across DataNodes to ensure data balance
+        within the Hadoop cluster.
+
+
+        7. Create a new directory named "hadoop" below the /user/training
+        directory in HDFS
+        • The hadoop fs -mkdir /user/training/hadoop command creates a new
+        directory named "hadoop" under the /user/training directory in HDFS.
+        • It's used to organize and manage data within the Hadoop file system.
+
+
+        8. Add a sample text file from the local directory named "data" to the new
+        directory you created in HDFS
+        • The hadoop fs -put data/sample.txt /user/training/hadoop command
+        uploads a text file from the local "data" directory to the "hadoop"
+        directory in HDFS.
+        • It is a common operation to transfer data from the local file system to
+        HDFS.
+
+
+        9. List the contents of this new directory in HDFS
+        • The hadoop fs -ls /user/training/hadoop command lists the contents of
+        the "hadoop" directory within HDFS.
+        • It displays the files and directories present in the specified HDFS
+        location.
+
+
+        10. Add the entire local directory called "retail" to the /user/training
+        directory in HDFS
+        • The hadoop fs -put data/retail /user/training/hadoop command copies
+        the entire local directory "retail" to the "hadoop" directory in HDFS.
+        • This is useful for transferring a complete directory to HDFS.
+
+
+        11. List your home directory in HDFS
+        • When you use the hadoop fs -ls command without an absolute path, it
+        lists the contents of your home directory in HDFS.
+        • This command provides an overview of the files and directories within
+        your HDFS home directory.
+
+
+        12. See how much space the "retail" directory occupies in HDFS
+        • The hadoop fs -du -s -h hadoop/retail command shows the disk usage of
+        the "retail" directory within HDFS.
+        • It displays the total size occupied by the specified directory in a human readable format.
+
+
+        13. Delete a file 'customers' from the "retail" directory
+        • The hadoop fs -rm hadoop/retail/customers command deletes the file
+        named 'customers' from the "retail" directory in HDFS.
+        • This operation removes the specified file from HDFS.
+
+
+        14. Ensure the file 'customers' is no longer in HDFS
+        • The hadoop fs -ls hadoop/retail/customers command is used to verify
+        whether the file 'customers' has been successfully deleted from HDFS.
+        • It checks for the existence of the specified file.
+
+
+        15. Delete all files from the "retail" directory using a wildcard
+        • The hadoop fs -rm hadoop/retail/* command deletes all files within the
+        "retail" directory in HDFS using a wildcard '*'.
+        • It is a convenient way to remove multiple files in one operation.
+
+
+        16. Empty the trash
+        • The hadoop fs -expunge command is used to empty the HDFS trash,
+        permanently deleting files that were previously moved to the trash.
+        • This helps free up storage space and ensures that deleted files are no
+        longer recoverable
+
+        .
+        17. Remove the entire retail directory and its contents in HDFS
+        • The hadoop fs -rm -r hadoop/retail command deletes the "retail"
+        directory and all its contents recursively.
+        • This operation effectively removes an entire directory and its
+        subdirectories.
+
+
+        18. List the hadoop directory again
+        • The hadoop fs -ls hadoop command lists the contents of the "hadoop"
+        directory in HDFS.
+        • It helps confirm the status of the directory after performing various
+        operations.
+
+
+        19. Add the purchases.txt file from the local directory to the hadoop
+        directory you created in HDFS
+        • The hadoop fs -copyFromLocal /home/training/purchases.txt hadoop/
+        command copies the local file "purchases.txt" to the "hadoop" directory
+        in HDFS.
+        • This is a way to transfer a single file from the local file system to HDFS.
+
+
+        20. View the contents of the text file purchases.txt in your hadoop directory
+        • The hadoop fs -cat hadoop/purchases.txt command displays the
+        contents of the "purchases.txt" file within the "hadoop" directory in
+        HDFS.
+        • It allows you to view the content of the specified file.
+
+
+        21. Add the purchases.txt file from the "hadoop" directory in HDFS to the
+        "data" directory in your local directory
+        • The hadoop fs -copyToLocal hadoop/purchases.txt 
+        /home/training/data command copies the "purchases.txt" file from the
+        "hadoop" directory in HDFS to the "data" directory in your local
+        filesystem.
+        • This is a way to transfer a file from HDFS to the local file system.
+
+
+        22. Copy files between directories present in HDFS
+        • The hadoop fs -cp /user/training/*.txt /user/training/hadoop command
+        is used to copy files from one directory to another within HDFS.
+        • This is a way to manage and organize files in HDFS by duplicating them
+        in a different location.
+
+        23. '-get' command can be used alternatively to '-copyToLocal' command
+        • The hadoop fs -get hadoop/sample.txt /home/training/ command is an
+        alternative to the -copyToLocal command, and it copies the "sample.txt"
+        file from the "hadoop" directory in HDFS to your local directory.
+        • It provides flexibility in copying files from HDFS to the local filesystem.
+
+
+
+        24. Display the last kilobyte of the file "purchases.txt" to stdout
+        • The hadoop fs -tail hadoop/purchases.txt command displays the last
+        kilobyte of the "purchases.txt" file to the standard output (stdout).
+        • This can be useful for quickly inspecting the end of large log or text files.
+
+
+        25. Change file permissions in HDFS
+        • By default, file permissions in HDFS are set to 666. The hadoop fs -
+        chmod command is used to change the permissions of a file.
+        • In this example, it changes the permissions of the "purchases.txt" file to
+        600, limiting access to the file.
+
+
+        26. Change file owner and group in HDFS
+        • Default names of owner and group in HDFS are typically
+        "training,training." The hadoop fs -chown command is used to change
+        the owner and group name simultaneously.
+        • In this example, it changes the owner and group of the "purchases.txt" file
+        to "root:root."
+
+
+        27. Change group name in HDFS
+        • The default name of the group is usually "training." The hadoop fs -
+        chgrp command is used to change the group name for a file or directory
+        in HDFS.
+        • In this example, it changes the group of the "purchases.txt" file to
+        "training."
+        (eg hadoop fs -ls etash/purchase.text sude -u hdfs hadoop fs -chgrp training etash/purchase.txt)
+
+
+        28. Move a directory in HDFS
+        • The hadoop fs -mv hadoop apache_hadoop command is used to move a
+        directory from one location to another within HDFS.
+        • In this example, the "hadoop" directory is renamed to "apache_hadoop."
+
+
+        29. Change the replication factor of a file in HDFS
+        • The default replication factor for a file in HDFS is typically 3. The
+        hadoop fs -setrep command is used to change the replication factor of a
+        file.
+        • In this example, it sets the replication factor of the "sample.txt" file to 2.
+
+        30. Copy a directory between nodes in the cluster
+        • The hadoop fs -distcp command is used to copy a directory between
+        nodes in the Hadoop cluster. It provides options like -overwrite and -
+        update for different behaviors.
+        • It is used for copying data between Hadoop clusters or nodes and
+        ensuring data consistency.
+
+        31. Make the NameNode leave safe mode
+        • The hadoop fs -expunge command, when combined with the hdfs
+        dfsadmin -safemode leave command, is used to make the HDFS
+        NameNode leave safe mode.
+        • This is important to ensure normal HDFS operations after maintenance or
+        recovery.
+        (hadoop fs -expunge sudo -u hdfs hdf)
+
+
+        32. List all Hadoop file system shell commands
+        • The hadoop fs command, when used without specifying a subcommand,
+        lists all available Hadoop file system shell commands.
+        • This helps you see a comprehensive list of commands available for
+        managing HDFS
+    </pre>
+
+</body>
+</html>

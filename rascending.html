@@ -1,0 +1,38 @@
+<html lang="" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>BDA PRACS</title>
+</head>
+
+<body>
+
+    <pre>
+        # Define the vector
+        vec <- c(23, 45, 10, 34, 89, 20, 67, 99)
+
+        # Sort the vector in ascending order
+        vec_asc <- sort(vec)
+        print("Vector sorted in ascending order:")
+        print(vec_asc)
+
+        # Sort the vector in descending order
+        vec_desc <- sort(vec, decreasing = TRUE)
+        print("Vector sorted in descending order:")
+        print(vec_desc)
+
+        # Display the sorted vector using a bar chart
+        library(ggplot2)
+        library(dplyr)
+
+        df <- data.frame(value = c(vec_asc, vec_desc),
+                        type = rep(c("Ascending", "Descending"), each = length(vec)))
+
+        ggplot(df, aes(x = type, y = value, fill = type)) +
+        geom_bar(stat = "identity") +
+        labs(title = "Sorted Vector", x = NULL, y = "Value") +
+        theme(legend.position = "none")
+    </pre>
+
+</body>
+</html>
